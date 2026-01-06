@@ -1,0 +1,72 @@
+table 'demo_sales_data csv'
+	lineageTag: 05e26051-bae3-4d3a-8c0b-9980b5219c60
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ae3b6b54-f611-42a9-b771-8f0b27547b3b
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Product
+		dataType: string
+		lineageTag: 6ff38c94-a240-49ce-8fdd-db400a0a9dda
+		summarizeBy: none
+		sourceColumn: Product
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 50aaf60b-0a48-41c3-bdb4-c398535a3211
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 3f96586f-b5ea-4897-a60a-82de8558639a
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column ' Sales '
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 023f94ea-d52c-47d9-b3c5-ee1e7c2bc0eb
+		summarizeBy: sum
+		sourceColumn: " Sales "
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ' Profit '
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ff0650fb-1e87-4fe2-9477-a698a04ab480
+		summarizeBy: sum
+		sourceColumn: " Profit "
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition 'demo_sales_data csv' = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\morad\Downloads\demo_sales_data csv.csv"),[Delimiter=",", Columns=6, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"Product", type text}, {"Category", type text}, {"Region", type text}, {" Sales ", Currency.Type}, {" Profit ", Currency.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

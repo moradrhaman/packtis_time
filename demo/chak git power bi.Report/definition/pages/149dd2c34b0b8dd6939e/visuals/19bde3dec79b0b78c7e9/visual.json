@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "19bde3dec79b0b78c7e9",
   "position": {
-    "x": 63.832020997375324,
-    "y": 21.837270341207347,
+    "x": 21.837270341207347,
+    "y": 359.47506561679791,
     "z": 0,
-    "height": 299.002624671916,
-    "width": 299.002624671916
+    "height": 361.15485564304458,
+    "width": 1244.724409448819
   },
   "visual": {
     "visualType": "tableEx",
@@ -19,14 +19,94 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "mes_rows"
+                      "Entity": "demo_sales_data csv"
                     }
                   },
-                  "Property": "teacher_name"
+                  "Property": "Product"
                 }
               },
-              "queryRef": "mes_rows.teacher_name",
-              "nativeQueryRef": "teacher_name"
+              "queryRef": "demo_sales_data csv.Product",
+              "nativeQueryRef": "Product"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "demo_sales_data csv"
+                    }
+                  },
+                  "Property": "Region"
+                }
+              },
+              "queryRef": "demo_sales_data csv.Region",
+              "nativeQueryRef": "Region"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "demo_sales_data csv"
+                    }
+                  },
+                  "Property": "Category"
+                }
+              },
+              "queryRef": "demo_sales_data csv.Category",
+              "nativeQueryRef": "Category"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "demo_sales_data csv"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "demo_sales_data csv.Date",
+              "nativeQueryRef": "Date"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "demo_sales_data csv"
+                        }
+                      },
+                      "Property": " Profit "
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(demo_sales_data csv. Profit )",
+              "nativeQueryRef": "Sum of  Profit "
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "demo_sales_data csv"
+                        }
+                      },
+                      "Property": " Sales "
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(demo_sales_data csv. Sales )",
+              "nativeQueryRef": "Sum of  Sales "
             }
           ]
         }
@@ -37,15 +117,95 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "df72c010801dbcc08879",
+        "name": "f5688778b794bd85d551",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "mes_rows"
+                "Entity": "demo_sales_data csv"
               }
             },
-            "Property": "teacher_name"
+            "Property": "Product"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d3dd8a8758b7e7e096c2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "demo_sales_data csv"
+              }
+            },
+            "Property": "Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "fef8a922dcdd148e005a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "demo_sales_data csv"
+              }
+            },
+            "Property": "Region"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "636c070a097c4d7cc85b",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "demo_sales_data csv"
+                  }
+                },
+                "Property": " Sales "
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7bf56f7e828484c4486d",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "demo_sales_data csv"
+                  }
+                },
+                "Property": " Profit "
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3c36d54f0570433cc442",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "demo_sales_data csv"
+              }
+            },
+            "Property": "Category"
           }
         },
         "type": "Categorical"

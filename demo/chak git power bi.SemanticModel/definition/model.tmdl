@@ -10,9 +10,10 @@ annotation __PBI_TimeIntelligenceEnabled = 0
 
 annotation PBI_ProTooling = ["DevMode"]
 
-annotation PBI_QueryOrder = ["mes_rows"]
+annotation PBI_QueryOrder = ["mes_rows","demo_sales_data csv"]
 
 ref table mes_rows
+ref table 'demo_sales_data csv'
 
 ref cultureInfo en-US
 

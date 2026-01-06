@@ -4,5 +4,46 @@
   "displayName": "Page 1",
   "displayOption": "FitToPage",
   "height": 720,
-  "width": 1280
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6d0923e0ed6505507668",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "demo_sales_data csv"
+              }
+            },
+            "Property": " Profit "
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "d6483d4409d61de745e3",
+    "type": "Drillthrough",
+    "parameters": [
+      {
+        "name": "20fd997dea029b44a6d1",
+        "boundFilter": "6d0923e0ed6505507668",
+        "asAggregation": true,
+        "qnaSingleSelectRequired": false,
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "demo_sales_data csv"
+              }
+            },
+            "Property": " Profit "
+          }
+        }
+      }
+    ]
+  }
 }

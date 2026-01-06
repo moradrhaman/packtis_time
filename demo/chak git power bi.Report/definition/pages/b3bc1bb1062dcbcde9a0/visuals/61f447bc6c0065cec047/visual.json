@@ -1,0 +1,126 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "61f447bc6c0065cec047",
+  "position": {
+    "x": 13.438320209973753,
+    "y": 241.88976377952756,
+    "z": 0,
+    "height": 300.68241469816275,
+    "width": 299.002624671916
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "demo_sales_data csv"
+                        }
+                      },
+                      "Property": " Sales "
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(demo_sales_data csv. Sales )",
+              "nativeQueryRef": "Sum of  Sales "
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "demo_sales_data csv"
+                        }
+                      },
+                      "Property": " Profit "
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(demo_sales_data csv. Profit )",
+              "nativeQueryRef": "Sum of  Profit "
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "demo_sales_data csv"
+                      }
+                    },
+                    "Property": " Sales "
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b452a2bb67b6d3718d0c",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "demo_sales_data csv"
+                  }
+                },
+                "Property": " Sales "
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "00b2eb55594a30aaca3d",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "demo_sales_data csv"
+                  }
+                },
+                "Property": " Profit "
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
