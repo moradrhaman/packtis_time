@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "19bde3dec79b0b78c7e9",
+  "position": {
+    "x": 63.832020997375324,
+    "y": 21.837270341207347,
+    "z": 0,
+    "height": 299.002624671916,
+    "width": 299.002624671916
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mes_rows"
+                    }
+                  },
+                  "Property": "teacher_name"
+                }
+              },
+              "queryRef": "mes_rows.teacher_name",
+              "nativeQueryRef": "teacher_name"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "df72c010801dbcc08879",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "mes_rows"
+              }
+            },
+            "Property": "teacher_name"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

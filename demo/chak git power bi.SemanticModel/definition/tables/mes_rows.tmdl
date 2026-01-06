@@ -1,0 +1,49 @@
+table mes_rows
+	lineageTag: a2d5d6d9-d6dc-4fd5-a3a3-dd72563720c2
+
+	column teacher_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 2dd03c8f-bfa9-4dc8-8183-6f9154794c1d
+		summarizeBy: sum
+		sourceColumn: teacher_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column teacher_name
+		dataType: string
+		lineageTag: b8bfe05f-b850-44fd-895b-958d1d7f6e56
+		summarizeBy: none
+		sourceColumn: teacher_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column subject
+		dataType: string
+		lineageTag: 7212ef9a-b81d-4002-80e7-38568085d4d7
+		summarizeBy: none
+		sourceColumn: subject
+
+		annotation SummarizationSetBy = Automatic
+
+	column hire_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 539bebaf-3297-4077-957c-e7e2ac3d981c
+		summarizeBy: none
+		sourceColumn: hire_date
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mes_rows = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\morad\Downloads\mes_rows.csv"),[Delimiter=",", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"teacher_id", Int64.Type}, {"teacher_name", type text}, {"subject", type text}, {"hire_date", type datetime}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

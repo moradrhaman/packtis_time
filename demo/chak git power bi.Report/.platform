@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "chak git power bi"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "37220571-2a15-4eab-8b52-8ab5015dd377"
+  }
+}
